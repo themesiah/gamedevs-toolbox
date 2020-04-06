@@ -1,3 +1,7 @@
-- Localization
 - Pools
 - Sets and singles
+- List selector
+- A* y grid utils
+- FSM
+- Audio system
+- UI (con FSM?)
