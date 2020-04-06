@@ -103,6 +103,22 @@ namespace GamedevsToolbox.ScriptableArchitecture.Localization
                 languageReference.AddText(this);
             }
         }
+
+        public void AddText(LocalizedTextPair textPair)
+        {
+            LocalizedTextPair ltp = textsPerLanguage.Find(pair => pair.language == textPair.language);
+            if (ltp != null)
+            {
+                ltp.text = textPair.text;
+            } else {
+                textsPerLanguage.Add(textPair);
+            }
+        }
+
+        public void SetId(string id)
+        {
+            localizedTextId = id;
+        }
 #endif
     }
 }
