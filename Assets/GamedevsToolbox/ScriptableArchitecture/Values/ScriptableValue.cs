@@ -17,7 +17,7 @@ namespace GamedevsToolbox.ScriptableArchitecture.Values
         private UnityAction<T> onValueChangedEvent = delegate { };
 
         #region IScriptableValue implementation
-        public T GetValue()
+        public virtual T GetValue()
         {
             return value;
         }

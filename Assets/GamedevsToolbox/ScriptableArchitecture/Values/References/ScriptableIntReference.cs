@@ -11,6 +11,7 @@ namespace GamedevsToolbox.ScriptableArchitecture.Values
         private bool useRandom = false;
 
         [SerializeField]
+        [Tooltip("Minimum inclusive and maximum exclusive")]
         private ScriptableVector2IntReference minMax = new ScriptableVector2IntReference();
 
         public override int GetValue()

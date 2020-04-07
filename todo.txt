@@ -1,7 +1,5 @@
-- Pools
-- Sets and singles
-- List selector
 - A* y grid utils
 - FSM
 - Audio system
 - UI (con FSM?)
+- Command pattern y otros patterns?
