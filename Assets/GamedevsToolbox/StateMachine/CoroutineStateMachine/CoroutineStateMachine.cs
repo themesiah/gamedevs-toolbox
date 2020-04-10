@@ -9,6 +9,7 @@ namespace GamedevsToolbox.StateMachine {
     {
         protected ICoroutineState currentState = null;
         protected Dictionary<string, ICoroutineState> states;
+        protected string newState = null;
         
         public void SetStates(Dictionary<string, ICoroutineState> states)
         {
@@ -17,12 +18,14 @@ namespace GamedevsToolbox.StateMachine {
 
         public virtual IEnumerator EnterState()
         {
-            yield return null;
+            yield return currentState?.EnterState();
+            //yield return null;
         }
 
         public virtual IEnumerator ExitState()
         {
-            yield return null;
+            yield return currentState?.ExitState();
+            //yield return null;
         }
 
         public virtual void ReceiveSignal(string signal) {}
@@ -54,6 +57,7 @@ namespace GamedevsToolbox.StateMachine {
             }
             else
             {
+                resolve?.Invoke(newState);
                 yield return null;
             }
         }

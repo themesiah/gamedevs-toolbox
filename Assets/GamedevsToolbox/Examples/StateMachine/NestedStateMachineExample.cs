@@ -5,6 +5,22 @@ namespace GamedevsToolbox.Examples
 {
     public class NestedStateMachineExample : StateMachine.FiniteStateMachine
     {
+        public override void EnterState()
+        {
+            if (currentState != null)
+            {
+                currentState.EnterState();
+            }
+        }
+
+        public override void ExitState()
+        {
+            if (currentState != null)
+            {
+                currentState.ExitState();
+            }
+        }
+
         public override void ReceiveSignal(string signal)
         {
             currentState.ReceiveSignal(signal);
