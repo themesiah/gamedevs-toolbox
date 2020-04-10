@@ -28,7 +28,6 @@ namespace GamedevsToolbox.UISolution
 
         public IEnumerator ExitState()
         {
-            nextMenu = null;
             menuData.anim.SetTrigger(menuData.outTrigger);
             while (menuData.anim.IsInTransition(0))
             {
@@ -36,6 +35,7 @@ namespace GamedevsToolbox.UISolution
             }
             yield return new WaitForSeconds(menuData.anim.GetCurrentAnimatorStateInfo(0).length);
             menuData.menuObject.SetActive(false);
+            nextMenu = null;
         }
 
         public virtual void ReceiveSignal(string signal)

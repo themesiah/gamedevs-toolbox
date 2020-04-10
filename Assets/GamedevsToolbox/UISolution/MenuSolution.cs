@@ -4,18 +4,18 @@ using UnityEngine;
 using GamedevsToolbox.StateMachine;
 using GamedevsToolbox.UISolution;
 
-namespace GamedevsToolbox.Examples
+namespace GamedevsToolbox.UISolution
 {
-    public class CoroutineStateMachineController : MonoBehaviour
+    public class MenuSolution : MonoBehaviour
     {
-        private MenuStateMachineExample stateMachine = default;
+        private MenuStateMachine stateMachine = default;
 
         [SerializeField]
         private UIMenuData[] menuData = default;
         
         void Start()
         {
-            stateMachine = new MenuStateMachineExample();
+            stateMachine = new MenuStateMachine();
             Dictionary<string, ICoroutineState> states = new Dictionary<string, ICoroutineState>();
             foreach(UIMenuData data in menuData)
             {
