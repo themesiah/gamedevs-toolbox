@@ -1,4 +1,1 @@
 - A* y grid utils
-- FSM
-- UI (con FSM?)
-- Command pattern y otros patterns?
