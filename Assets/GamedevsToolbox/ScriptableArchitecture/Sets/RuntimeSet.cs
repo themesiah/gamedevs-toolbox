@@ -23,5 +23,10 @@ namespace GamedevsToolbox.ScriptableArchitecture.Sets
         {
             Items.ForEach(action);
         }
+
+        public void Clear()
+        {
+            Items.Clear();
+        }
     }
 }

@@ -3,9 +3,10 @@ using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GamedevsToolbox.Utils;
 
 namespace GamedevsToolbox.StateMachine {
-    public class CoroutineStateMachine : ICoroutineState
+    public class CoroutineStateMachine : ICoroutineState, IPausable
     {
         protected ICoroutineState currentState = null;
         protected Dictionary<string, ICoroutineState> states;
@@ -52,14 +53,22 @@ namespace GamedevsToolbox.StateMachine {
                 else
                 {
                     Debug.LogError("Your state machine of type " + this.GetType().Name + " is trying to switch to the state " + newState + " which is not in the State Machine dictionary");
-                    yield return null;
                 }
             }
             else
             {
                 resolve?.Invoke(newState);
-                yield return null;
             }
+        }
+
+        public virtual void Pause()
+        {
+            currentState.Pause();
+        }
+
+        public virtual void Resume()
+        {
+            currentState.Resume();
         }
     }
 }

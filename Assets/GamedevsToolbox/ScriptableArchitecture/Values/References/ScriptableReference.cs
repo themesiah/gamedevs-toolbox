@@ -46,6 +46,16 @@ namespace GamedevsToolbox.ScriptableArchitecture.Values
         {
             value?.UnregisterOnChangeAction(action);
         }
+
+#if UNITY_EDITOR
+        public void SetScriptableValueManually(T2 val)
+        {
+            if (UnityEditor.EditorApplication.isPlaying)
+                Debug.LogWarning("If you are seeing this, someone used the SetScriptableValueManually outside an editor function. This will cause a build error and should be removed. If you are not in play mode, ignore this message.");
+            value = val;
+            useConstant = false;
+        }
+#endif
     }
 
 #if UNITY_EDITOR

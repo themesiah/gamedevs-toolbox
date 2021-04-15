@@ -18,8 +18,8 @@ namespace GamedevsToolbox.UISolution
         public IEnumerator EnterState()
         {
             menuData.menuObject?.SetActive(true);
-            menuData.anim.SetTrigger(menuData.inTrigger);
-            while(menuData.anim.IsInTransition(0))
+            menuData.anim?.SetTrigger(menuData.inTrigger);
+            while(menuData.anim != null && menuData.anim.IsInTransition(0))
             {
                 yield return null;
             }            
@@ -28,8 +28,8 @@ namespace GamedevsToolbox.UISolution
 
         public IEnumerator ExitState()
         {
-            menuData.anim.SetTrigger(menuData.outTrigger);
-            while (menuData.anim.IsInTransition(0))
+            menuData.anim?.SetTrigger(menuData.outTrigger);
+            while (menuData.anim != null && menuData.anim.IsInTransition(0))
             {
                 yield return null;
             }
@@ -50,6 +50,18 @@ namespace GamedevsToolbox.UISolution
                 resolve(nextMenu);
             }
             yield return null;
+        }
+
+        public void Resume()
+        {
+            if (menuData.anim != null)
+                menuData.anim.speed = 1f;
+        }
+
+        public void Pause()
+        {
+            if (menuData.anim != null)
+                menuData.anim.speed = 0f;
         }
     }
 }
