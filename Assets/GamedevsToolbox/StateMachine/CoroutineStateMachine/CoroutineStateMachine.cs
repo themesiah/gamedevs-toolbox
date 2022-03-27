@@ -46,14 +46,23 @@ namespace GamedevsToolbox.StateMachine {
             {
                 if (states.ContainsKey(newState))
                 {
-                    yield return currentState.ExitState();
-                    currentState = states[newState];
-                    yield return currentState.EnterState();
+                    if (currentState != states[newState])
+                    {
+                        yield return currentState.ExitState();
+                        Debug.LogFormat("Changed state to {0}", newState);
+                        currentState = states[newState];
+                        yield return currentState.EnterState();
+                    }
                 }
                 else
                 {
-                    Debug.LogError("Your state machine of type " + this.GetType().Name + " is trying to switch to the state " + newState + " which is not in the State Machine dictionary");
+                    Debug.LogError("Your state machine of type " + this.GetType().Name + " is trying to switch to the state " + newState + " which is not in the State Machine dictionary. Available states: ");
+                    foreach(var state in states.Keys)
+                    {
+                        Debug.LogError(state);
+                    }
                 }
+                newState = null;
             }
             else
             {
