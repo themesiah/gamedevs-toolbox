@@ -1,0 +1,56 @@
+{
+    "name": "IMGUIActions",
+    "maps": [
+        {
+            "name": "ImGUI",
+            "id": "963936e9-40de-47ec-8e65-18814c43e5c0",
+            "actions": [
+                {
+                    "name": "Drag",
+                    "type": "Value",
+                    "id": "48b542f2-8da5-4846-a871-c55010c10b68",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "DragMouse",
+                    "id": "ce7dc8a3-a14c-48de-9f61-7b5dd171e106",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Drag",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "d2a22deb-e52b-45dc-8f2e-f3c5c33338c6",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Drag",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "4345bc6d-9d93-4c42-b093-62e0dac468de",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Drag",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
