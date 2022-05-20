@@ -21,7 +21,7 @@ namespace GamedevsToolbox.Utils
 
         private void Start()
         {
-            if (executeOnStart.GetValue())
+            if (executeOnStart.Value)
             {
                 repeatingEvent.Invoke();
             }
@@ -29,7 +29,7 @@ namespace GamedevsToolbox.Utils
 
         private void Update()
         {
-            if (unscaledDeltaTime.GetValue())
+            if (unscaledDeltaTime.Value)
             {
                 timer += Time.unscaledDeltaTime;
             } else
@@ -37,7 +37,7 @@ namespace GamedevsToolbox.Utils
                 timer += Time.deltaTime;
             }
 
-            if (timer >= delay.GetValue())
+            if (timer >= delay.Value)
             {
                 timer = 0f;
                 repeatingEvent.Invoke();

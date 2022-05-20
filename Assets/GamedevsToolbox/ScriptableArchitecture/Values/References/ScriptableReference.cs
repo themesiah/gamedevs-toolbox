@@ -18,33 +18,34 @@ namespace GamedevsToolbox.ScriptableArchitecture.Values
         [SerializeField]
         private T constantValue = default;
 
-        public virtual T GetValue()
+        public virtual T Value
         {
-            if (useConstant)
+            get => useConstant ? constantValue : value.Value;
+            set
             {
-                return constantValue;
-            }
-            else
-            {
-                return value.GetValue();
+                if (!useConstant)
+                {
+                    this.value.Value = value;
+                }
             }
         }
 
-        public virtual void SetValue(T value) {
-            if (!useConstant)
-            {
-                this.value.SetValue(value);
-            }
+        public void IncrementValue(T other)
+        {
+            if (value != null)
+                value.IncrementValue(other);
         }
 
         public void RegisterOnChangeAction(UnityAction<T> action)
         {
-            value?.RegisterOnChangeAction(action);
+            if (value != null)
+                value.OnValueChangedEvent += action;
         }
 
         public void UnregisterOnChangeAction(UnityAction<T> action)
         {
-            value?.UnregisterOnChangeAction(action);
+            if (value != null)
+                value.OnValueChangedEvent -= action;
         }
 
 #if UNITY_EDITOR

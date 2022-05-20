@@ -6,9 +6,9 @@ namespace GamedevsToolbox.ScriptableArchitecture.Values
     public class ScriptableIntValue : ScriptableValue<int>
     {
         #region Public Methods
-        public void IncrementValue(int increment)
+        public override void IncrementValue(int increment)
         {
-            SetValue(GetValue() + increment);
+            Value += increment;
         }
         #endregion
     }

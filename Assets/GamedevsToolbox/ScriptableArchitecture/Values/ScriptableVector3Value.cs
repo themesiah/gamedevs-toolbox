@@ -7,9 +7,9 @@ namespace GamedevsToolbox.ScriptableArchitecture.Values
     public class ScriptableVector3Value : ScriptableValue<Vector3>
     {
         #region Public Methods
-        public void IncrementValue(Vector3 increment)
+        public override void IncrementValue(Vector3 increment)
         {
-            SetValue(GetValue() + increment);
+            Value += increment;
         }
         #endregion
     }

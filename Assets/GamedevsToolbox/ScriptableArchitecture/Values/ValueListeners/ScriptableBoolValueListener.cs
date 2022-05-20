@@ -1,8 +1,6 @@
-﻿using UnityEngine;
-
-namespace GamedevsToolbox.ScriptableArchitecture.Values
+﻿namespace GamedevsToolbox.ScriptableArchitecture.Values
 {
-    public class ScriptableBoolValueListener : ScriptableValueListener<bool, ScriptableBoolValue, ScriptableBoolReference>
+    public class ScriptableBoolValueListener : ScriptableValueListener<bool, ScriptableBoolValue>
     {
     }
 }

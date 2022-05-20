@@ -14,8 +14,8 @@ namespace GamedevsToolbox.Examples
 
         private void Start()
         {
-            Debug.Log(intVal.GetValue().ToString());
-            Debug.Log(floatVal.GetValue().ToString());
+            Debug.Log(intVal.Value.ToString());
+            Debug.Log(floatVal.Value.ToString());
         }
     }
 }

@@ -14,16 +14,8 @@ namespace GamedevsToolbox.ScriptableArchitecture.Values
         [Tooltip("Minimum inclusive and maximum exclusive")]
         private ScriptableVector2IntReference minMax = new ScriptableVector2IntReference();
 
-        public override int GetValue()
-        {
-            if (useRandom)
-            {
-                return Random.Range(minMax.GetValue()[0], minMax.GetValue()[1]);
-            }
-            else
-            {
-                return base.GetValue();
-            }
+        public override int Value {
+            get => useRandom ? Random.Range(minMax.Value[0], minMax.Value[1]) : base.Value;
         }
     }
 
@@ -110,7 +102,7 @@ namespace GamedevsToolbox.ScriptableArchitecture.Values
             ScriptableIntValue val = property.FindPropertyRelative("value").objectReferenceValue as ScriptableIntValue;
             if (val != null)
             {
-                return val.GetValue().ToString();
+                return val.Value.ToString();
             } else
             {
                 return "";

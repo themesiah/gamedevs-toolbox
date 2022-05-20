@@ -29,7 +29,7 @@ namespace GamedevsToolbox.ScriptableArchitecture.Values
             ScriptableVector3IntValue val = property.FindPropertyRelative("value").objectReferenceValue as ScriptableVector3IntValue;
             if (val != null)
             {
-                return val.GetValue().ToString();
+                return val.Value.ToString();
             }
             else
             {

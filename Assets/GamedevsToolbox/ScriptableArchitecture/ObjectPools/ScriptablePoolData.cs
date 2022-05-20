@@ -35,10 +35,10 @@ namespace GamedevsToolbox.ScriptableArchitecture.Pools
         [Tooltip("If the behaviour is Dynamic, how many instances it creates every time there is need to")]
         private Values.ScriptableIntReference dynamicInstancePace = default;
 
-        public int NumberOfInstances => numberOfInstances.GetValue();
+        public int NumberOfInstances => numberOfInstances.Value;
         public InstancesFullBehaviour Behaviour => instancesFullBehaviour;
-        public int DynamicMaxInstances => dynamicMaxInstances.GetValue();
-        public int DynamicInstancePace => dynamicInstancePace.GetValue();
+        public int DynamicMaxInstances => dynamicMaxInstances.Value;
+        public int DynamicInstancePace => dynamicInstancePace.Value;
         public GameObject Prefab => prefabToInstantiate;
         public AssetReference PrefabReference => referenceToInstantiate;
     }

@@ -17,7 +17,7 @@ namespace GamedevsToolbox.ScriptableArchitecture.Values
         private bool resetOnAwake = false;
 
         private T lastValue;
-        private UnityAction<T> onValueChangedEvent = delegate { };
+        public event UnityAction<T> OnValueChangedEvent = delegate { };
 
         private void Awake()
         {
@@ -29,40 +29,31 @@ namespace GamedevsToolbox.ScriptableArchitecture.Values
         }
 
         #region IScriptableValue implementation
-        public virtual T GetValue()
+        public virtual T Value
         {
-            return value;
+            get => value;
+            set
+            {
+                lastValue = this.value;
+                this.value = value;
+                InvokeOnChangeAction();
+            }
         }
 
-        public virtual void SetValue(T value)
-        {
-            lastValue = this.value;
-            this.value = value;
-            InvokeOnChangeAction();
-        }
+        public virtual void IncrementValue(T increment) { }
 
         public void ResetValue()
         {
-            SetValue(defaultValue);
-        }
-
-        public void RegisterOnChangeAction(UnityAction<T> action)
-        {
-            onValueChangedEvent += action;
-        }
-
-        public void UnregisterOnChangeAction(UnityAction<T> action)
-        {
-            onValueChangedEvent -= action;
+            Value = defaultValue;
         }
         #endregion
 
         #region Private Methods
         private void InvokeOnChangeAction()
         {
-            if (onValueChangedEvent != null && !lastValue.Equals(value))
+            if (OnValueChangedEvent != null && !lastValue.Equals(value))
             {
-                onValueChangedEvent.Invoke(value);
+                OnValueChangedEvent.Invoke(value);
             }
         }
         #endregion

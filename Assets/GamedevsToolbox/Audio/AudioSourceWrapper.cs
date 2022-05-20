@@ -19,7 +19,7 @@ namespace GamedevsToolbox.Audio {
 
         public void ChangeVolume(ScriptableArchitecture.Values.ScriptableFloatReference volumeReference)
         {
-            source.volume = volumeReference.GetValue();
+            source.volume = volumeReference.Value;
         }
 
         public void PlayClip(ScriptableAudioClip audioClip)

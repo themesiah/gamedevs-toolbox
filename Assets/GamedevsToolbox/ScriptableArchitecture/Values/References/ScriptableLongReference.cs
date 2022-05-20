@@ -24,7 +24,7 @@ namespace GamedevsToolbox.ScriptableArchitecture.Values
             ScriptableLongValue val = property.FindPropertyRelative("value").objectReferenceValue as ScriptableLongValue;
             if (val != null)
             {
-                return val.GetValue().ToString();
+                return val.Value.ToString();
             }
             else
             {

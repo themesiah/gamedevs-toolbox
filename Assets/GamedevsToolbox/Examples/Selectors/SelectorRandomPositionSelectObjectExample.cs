@@ -22,19 +22,19 @@ namespace GamedevsToolbox.Examples
         {
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
-                gameObjectSelectionValue.SetValue(0);
+                gameObjectSelectionValue.Value = 0;
             }
             if (Input.GetKeyDown(KeyCode.Alpha2))
             {
-                gameObjectSelectionValue.SetValue(1);
+                gameObjectSelectionValue.Value = 1;
             }
             if (Input.GetKeyDown(KeyCode.Alpha3))
             {
-                gameObjectSelectionValue.SetValue(2);
+                gameObjectSelectionValue.Value = 2;
             }
             if (Input.GetKeyDown(spawnKey))
             {
-                Instantiate(gameObjectSelector.Get(), positionSelector.Get().GetValue(), Quaternion.identity);
+                Instantiate(gameObjectSelector.Get(), positionSelector.Get().Value, Quaternion.identity);
             }
         }
     }

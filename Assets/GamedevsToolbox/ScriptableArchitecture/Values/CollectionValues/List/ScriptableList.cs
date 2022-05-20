@@ -17,13 +17,13 @@ namespace GamedevsToolbox.ScriptableArchitecture.Values
 
         public T GetValue()
         {
-            return values[listIndex.GetValue()];
+            return values[listIndex.Value];
         }
 
         public void SetValue(T value)
         {
-            T last = values[listIndex.GetValue()];
-            values[listIndex.GetValue()] = value;
+            T last = values[listIndex.Value];
+            values[listIndex.Value] = value;
             if (!value.Equals(last))
             {
                 InvokeOnChangeAction();

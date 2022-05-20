@@ -28,15 +28,15 @@ namespace GamedevsToolbox.Examples
 
         private void Start()
         {
-            Debug.Log(floatValue.GetValue().ToString());
-            Debug.Log(boolValue.GetValue().ToString());
-            Debug.Log(doubleValue.GetValue().ToString());
-            Debug.Log(intValue.GetValue().ToString());
-            Debug.Log(longValue.GetValue().ToString());
-            Debug.Log(shortValue.GetValue().ToString());
-            Debug.Log(stringValue.GetValue().ToString());
-            Debug.Log(vec2Value.GetValue().ToString());
-            Debug.Log(vec3Value.GetValue().ToString());
+            Debug.Log(floatValue.Value.ToString());
+            Debug.Log(boolValue.Value.ToString());
+            Debug.Log(doubleValue.Value.ToString());
+            Debug.Log(intValue.Value.ToString());
+            Debug.Log(longValue.Value.ToString());
+            Debug.Log(shortValue.Value.ToString());
+            Debug.Log(stringValue.Value.ToString());
+            Debug.Log(vec2Value.Value.ToString());
+            Debug.Log(vec3Value.Value.ToString());
         }
     }
 }

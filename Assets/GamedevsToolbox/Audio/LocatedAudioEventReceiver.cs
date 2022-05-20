@@ -16,7 +16,7 @@ namespace GamedevsToolbox.Audio
         public override void OnEventRaised(Audio.LocatedAudioEvent data)
         {
             float distance = Vector3.Distance(data.location, transform.position);
-            if (distance <= minMaxDistance.GetValue().y)
+            if (distance <= minMaxDistance.Value.y)
             {
                 float volume = GetVolume(distance);
                 detectionEvent.Invoke(new DetectedAudioEvent { audioClip = data.audioClip, volume = volume });
@@ -25,7 +25,7 @@ namespace GamedevsToolbox.Audio
         
         protected virtual float GetVolume(float distance)
         {
-            return 1f-Mathf.InverseLerp(minMaxDistance.GetValue().x, minMaxDistance.GetValue().y, distance);
+            return 1f-Mathf.InverseLerp(minMaxDistance.Value.x, minMaxDistance.Value.y, distance);
         }
     }
 }

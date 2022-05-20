@@ -16,7 +16,7 @@ namespace GamedevsToolbox.Examples
         void Update()
         {
             timer += Time.deltaTime;
-            if (timer >= delayBetweenEvents.GetValue())
+            if (timer >= delayBetweenEvents.Value)
             {
                 timer = 0f;
                 delayedEvent.Invoke();

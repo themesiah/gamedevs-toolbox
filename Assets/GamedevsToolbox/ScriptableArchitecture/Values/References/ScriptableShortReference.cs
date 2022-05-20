@@ -24,7 +24,7 @@ namespace GamedevsToolbox.ScriptableArchitecture.Values
             ScriptableShortValue val = property.FindPropertyRelative("value").objectReferenceValue as ScriptableShortValue;
             if (val != null)
             {
-                return val.GetValue().ToString();
+                return val.Value.ToString();
             }
             else
             {

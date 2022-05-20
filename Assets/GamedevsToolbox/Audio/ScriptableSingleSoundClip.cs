@@ -1,12 +1,12 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 namespace GamedevsToolbox.Audio
 {
-    [CreateAssetMenu(menuName = "Audio/Scriptable Sound Clip")]
-    public class ScriptableSoundClip : ScriptableAudioClip
+    [CreateAssetMenu(menuName = "Audio/Scriptable Single Sound Clip")]
+    public class ScriptableSingleSoundClip : ScriptableAudioClip
     {
         [SerializeField]
-        private ScriptableArchitecture.Selectors.ScriptableAudioClipSelector clipSelector = default;
+        private AudioClip clip = default;
         [SerializeField]
         private ScriptableArchitecture.Values.ScriptableFloatReference pitch = default;
         [SerializeField]
@@ -14,7 +14,7 @@ namespace GamedevsToolbox.Audio
 
         public override AudioClip GetClip()
         {
-            return clipSelector.Get();
+            return clip;
         }
 
         public override float GetPitch()

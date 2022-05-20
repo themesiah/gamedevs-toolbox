@@ -28,7 +28,7 @@ namespace GamedevsToolbox.ScriptableArchitecture.Values
             ScriptableVector2Value val = property.FindPropertyRelative("value").objectReferenceValue as ScriptableVector2Value;
             if (val != null)
             {
-                return val.GetValue().ToString();
+                return val.Value.ToString();
             }
             else
             {

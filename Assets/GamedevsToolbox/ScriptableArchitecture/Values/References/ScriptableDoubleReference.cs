@@ -24,7 +24,7 @@ namespace GamedevsToolbox.ScriptableArchitecture.Values
             ScriptableDoubleValue val = property.FindPropertyRelative("value").objectReferenceValue as ScriptableDoubleValue;
             if (val != null)
             {
-                return val.GetValue().ToString();
+                return val.Value.ToString();
             }
             else
             {

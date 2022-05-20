@@ -13,16 +13,8 @@ namespace GamedevsToolbox.ScriptableArchitecture.Values
         [SerializeField]
         private ScriptableVector2Reference minMax = new ScriptableVector2Reference();
 
-        public override float GetValue()
-        {
-            if (useRandom)
-            {
-                return Random.Range(minMax.GetValue()[0], minMax.GetValue()[1]);
-            }
-            else
-            {
-                return base.GetValue();
-            }
+        public override float Value {
+            get => useRandom ? Random.Range(minMax.Value[0], minMax.Value[1]) : base.Value;
         }
     }
 
@@ -108,7 +100,7 @@ namespace GamedevsToolbox.ScriptableArchitecture.Values
             ScriptableFloatValue val = property.FindPropertyRelative("value").objectReferenceValue as ScriptableFloatValue;
             if (val != null)
             {
-                return val.GetValue().ToString();
+                return val.Value.ToString();
             }
             else
             {

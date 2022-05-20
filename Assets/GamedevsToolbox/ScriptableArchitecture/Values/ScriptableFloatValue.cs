@@ -13,17 +13,20 @@ namespace GamedevsToolbox.ScriptableArchitecture.Values
         private bool useMaxValue = false;
 
         #region Public Methods
-        public void IncrementValue(float increment)
+        public override void IncrementValue(float increment)
         {
-            SetValue(GetValue() + increment);
+            Value += increment;
         }
 
-        public override void SetValue(float value)
-        {
-            if (useMaxValue && value > maxValue)
-                base.SetValue(maxValue);
-            else
-                base.SetValue(value);
+        public override float Value {
+            get => base.Value;
+            set
+            {
+                if (useMaxValue && value > maxValue)
+                    base.Value = maxValue;
+                else
+                    base.Value = value;
+            }
         }
         #endregion
     }

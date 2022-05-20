@@ -6,9 +6,9 @@ namespace GamedevsToolbox.ScriptableArchitecture.Values
     public class ScriptableShortValue : ScriptableValue<short>
     {
         #region Public Methods
-        public void IncrementValue(short increment)
+        public override void IncrementValue(short increment)
         {
-            SetValue((short)(GetValue() + increment));
+            Value += increment;
         }
         #endregion
     }

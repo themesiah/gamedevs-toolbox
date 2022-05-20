@@ -16,7 +16,7 @@ namespace GamedevsToolbox.ScriptableArchitecture.Selectors
 
         public T Get()
         {
-            int index = indexForSelection.GetValue();
+            int index = indexForSelection.Value;
             if (index >= elements.Length || index < 0)
             {
                 index = 0;
